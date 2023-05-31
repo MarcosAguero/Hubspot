@@ -1,0 +1,39 @@
+<script>
+/* 
+Use $ to use jQuery object when the document load ready, then execute the anonymous funcion()
+*/
+$(document).ready(function() {
+  
+  const queryString = window.location.search;
+    console.log(queryString);
+
+    const urlParams = new URLSearchParams(queryString);
+
+    // Nombre 
+    const firstname = urlParams.get('firstname');
+    console.log(firstname);
+
+    // Email 
+    const email = urlParams.get('email');
+    console.log(email);
+    
+   // URL redirect Whatsapp
+  	var url = "https://wapp.ly/g/xxxxxxxx?firstname=" + firstname + "&email=" + email;
+  	// accion de redirect Whatsapp
+ 	$("a").attr("href", url );
+  
+  // ========== Agrego link al redirect ==========   
+myFunction();
+  
+function myFunction() {
+    setInterval(function(){ 
+        $(".conv-countdown.conv_id_countdown").attr("data-redirect", url );
+	   
+  }, 	10000);
+}
+
+  
+
+});
+</script>
+
