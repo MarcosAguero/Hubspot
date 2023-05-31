@@ -18,3 +18,38 @@
         } 
 });
 </script>
+
+<script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/embed/v2.js"></script><script>
+  hbspt.forms.create({
+    region: "na1",
+    portalId: "xxxxxxxx",
+    formId: "xxxxxx-xxxxx-xxxxxxxxxx-xxxxxxxxxxxxx",
+    onFormSubmit: function($form) {
+       // get url
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+    
+        // Params
+        const utm_medium_var = urlParams.get('utm_medium');
+        const utm_source_var = urlParams.get('utm_source');
+        const utm_campaign_var = urlParams.get('utm_campaign');
+        const utm_term_var = urlParams.get('utm_term');
+        const utm_content_var = urlParams.get('utm_content');
+        
+        $form.find('[name="utm_medium"]').val(utm_medium_var);
+        $form.find('[name="utm_source"]').val(utm_source_var);
+        $form.find('[name="utm_campaign"]').val(utm_campaign_var);
+        $form.find('[name="utm_term"]').val(utm_term_var);
+        $form.find('[name="utm_content"]').val(utm_content_var);
+      	
+      	var email = $form.find('[name="email"]').val();
+      	var firstname = $form.find('[name="firstname"]').val();
+      
+        setTimeout( function() {
+      	var formData = $form.serialize();
+       	window.location = "http://www.xxxxxxxxxxxxxxxx.com/gracias/?email=" + email + "&firstname=" + 	firstname;
+        }, 250 ); 
+
+    } 
+  });
+</script>
